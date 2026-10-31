@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Өнгийн уламжлалт нэршил - 6-р анги</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .color-card {
+            transition: all 0.3s ease;
+        }
+        .color-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-amber-600 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid font-bold fa-palette text-3xl text-amber-200"></i>
+                <div>
+                    <h1 class="text-xl font-extrabold tracking-wide">ДҮРСЛЭХ УРЛАГ VI ANGI</h1>
+                    <p class="text-xs text-amber-100">Өнгийн уламжлалт нэршил ба бэлгэдэл</p>
+                </div>
+            </div>
+            <div class="bg-amber-800/60 px-4 py-2 rounded-full border border-amber-400/40 flex items-center gap-2">
+                <i class="fa-solid fa-star text-yellow-300"></i>
+                <span id="top-score" class="font-bold text-lg">Миний оноо: 0</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8 space-y-12">
+
+        <!-- Intro Banner -->
+        <section class="bg-white rounded-2xl p-6 md:p-8 shadow-md border-l-8 border-amber-500 flex flex-col md:flex-row gap-6 items-center">
+            <div class="space-y-3 flex-1">
+                <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Интерактив хичээл</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Монгол зургийн өнгөний ертөнцөөр аялах уу?</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    XVIII зууны эрдэмтэн Сүмбэ Хамбо Ишбалжир "Цэцгэн эрхи" зохиолдоо өнгийг <strong>Эцэг, Эх, Хүү</strong> хэмээн ангилсан байдаг. Өнөөдрийн хичээлээр Монгол уламжлалт өнгөнүүдийн нэршил, үүсэл болон тэдгээрийн утга бэлгэдлийг судалцгаая!
+                </p>
+            </div>
+            <div class="w-full md:w-48 h-32 bg-amber-50 rounded-xl flex flex-col items-center justify-center p-4 text-center border border-amber-200">
+                <i class="fa-solid fa-book-open text-4xl text-amber-600 mb-2"></i>
+                <span class="text-xs font-semibold text-amber-900">100 онооны даалгавар хүлээж байна!</span>
+            </div>
+        </section>
+
+        <!-- Section 1: Father Colors -->
+        <section class="bg-white rounded-2xl p-6 md:p-8 shadow-md">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xl">1</div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">Долоон эцэг өнгө</h3>
+                    <p class="text-xs text-slate-500">Эртний монгол хэлэн дэх өнгөний үндсэн нэршил</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+                <div class="color-card bg-slate-50 rounded-xl p-4 text-center border border-slate-200 shadow-sm">
+                    <div class="w-16 h-16 bg-blue-900 rounded-full mx-auto mb-3 shadow-inner"></div>
+                    <h4 class="font-bold text-slate-800">Арам</h4>
+                    <p class="text-xs text-slate-500 font-semibold mt-1">Хөх өнгө</p>
+                </div>
+
+                <div class="color-card bg-slate-50 rounded-xl p-4 text-center border border-slate-200 shadow-sm">
+                    <div class="w-16 h-16 bg-sky-400 rounded-full mx-auto mb-3 shadow-inner"></div>
+                    <h4 class="font-bold text-slate-800">Тэн</h4>
+                    <p class="text-xs text-slate-500 font-semibold mt-1">Цэнхэр өнгө</p>
+                </div>
+
+                <div class="color-card bg-slate-50 rounded-xl p-4 text-center border border-slate-200 shadow-sm">
+                    <div class="w-16 h-16 bg-amber-900 rounded-full mx-auto mb-3 shadow-inner"></div>
+                    <h4 class="font-bold text-slate-800">Энгэсэг</h4>
+                    <p class="text-xs text-slate-500 font-semibold mt-1">Хүрэн өнгө</p>
+                </div>
+
+                <div class="color-card bg-slate-50 rounded-xl p-4 text-center border border-slate-200 shadow-sm">
+                    <div class="w-16 h-16 bg-red-600 rounded-full mx-auto mb-3 shadow-inner"></div>
+                    <h4 class="font-bold text-slate-800">Шунх</h4>
+                    <p class="text-xs text-slate-500 font-semibold mt-1">Улаан өнгө</p>
+                </div>
+
+                <div class="color-card bg-slate-50 rounded-xl p-4 text-center border border-slate-200 shadow-sm">
+                    <div class="w-16 h-16 bg-orange-500 rounded-full mx-auto mb-3 shadow-inner"></div>
+                    <h4 class="font-bold text-slate-800">Хонд</h4>
+                    <p class="text-xs text-slate-500 font-semibold mt-1">Улбар шар</p>
+                </div>
+
+                <div class="color-card bg-slate-50 rounded-xl p-4 text-center border border-slate-200 shadow-sm">
+                    <div class="w-16 h-16 bg-emerald-600 rounded-full mx-auto mb-3 shadow-inner"></div>
+                    <h4 class="font-bold text-slate-800">Ногоон</h4>
+                    <p class="text-xs text-slate-500 font-semibold mt-1">Ногоон өнгө</p>
+                </div>
+
+                <div class="color-card bg-slate-50 rounded-xl p-4 text-center border border-slate-200 shadow-sm col-span-2 md:col-span-1">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-full mx-auto mb-3 shadow-inner"></div>
+                    <h4 class="font-bold text-slate-800">Шар</h4>
+                    <p class="text-xs text-slate-500 font-semibold mt-1">Шар өнгө</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Interactive Color Mixer -->
+        <section class="bg-white rounded-2xl p-6 md:p-8 shadow-md">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xl">2</div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">Хүү өнгө хэрхэн үүсдэг вэ? (Туршилт)</h3>
+                    <p class="text-xs text-slate-500">Эцэг өнгө дээр Эх өнгө (Цагаан)-ийг хольж, "Хүү өнгө" гаргаж авъя</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Step 1 -->
+                <div class="flex flex-col items-center">
+                    <span class="text-xs font-bold text-slate-500 mb-2">1. Эцэг өнгө сонгох</span>
+                    <select id="father-color" onchange="mixColor()" class="bg-white border border-slate-300 font-bold text-slate-700 py-2 px-4 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <option value="red">Шунх (Улаан)</option>
+                        <option value="blue">Арам (Хөх)</option>
+                        <option value="green">Ногоон</option>
+                        <option value="orange">Хонд (Улбар шар)</option>
+                    </select>
+                </div>
+
+                <div class="text-xl font-bold text-slate-400">+</div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col items-center">
+                    <span class="text-xs font-bold text-slate-500 mb-2">2. Эх өнгө (Цагаан)</span>
+                    <div class="w-12 h-12 bg-white rounded-full border-2 border-slate-300 flex items-center justify-center font-bold text-xs text-slate-400 shadow-inner">
+                        Цагаан
+                    </div>
+                </div>
+
+                <div class="text-xl font-bold text-slate-400">=</div>
+
+                <!-- Result -->
+                <div class="flex flex-col items-center flex-1 w-full md:w-auto">
+                    <span class="text-xs font-bold text-slate-500 mb-2">3. Үүссэн "Хүү өнгө" (Дагнаас)</span>
+                    <div id="color-gradient" class="w-full h-12 rounded-lg shadow-inner border border-slate-300 transition-all duration-500"></div>
+                    <span id="gradient-label" class="text-xs font-semibold text-slate-600 mt-2">Будгийн туяа шингэрч олон "Хүү өнгө" үүснэ</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Color Symbolism -->
+        <section class="bg-white rounded-2xl p-6 md:p-8 shadow-md">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xl">3</div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">Өнгийн бэлгэдэл</h3>
+                    <p class="text-xs text-slate-500">Монголчуудын соёлд өнгө бүр гүн утга агуулдаг</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="p-4 rounded-xl bg-blue-50 border border-blue-100 flex gap-3">
+                    <div class="w-10 h-10 rounded-full bg-blue-600 text-white shrink-0 flex items-center justify-center font-bold">Хөх</div>
+                    <div>
+                        <h4 class="font-bold text-blue-950">Мөнх Тэнгэр</h4>
+                        <p class="text-xs text-slate-600 mt-1">Сүлд, сүнс, сүр жавхлан, оюун санаа, Хөх Монгол улсын бэлгэдэл.</p>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex gap-3">
+                    <div class="w-10 h-10 rounded-full bg-white border border-slate-400 text-slate-800 shrink-0 flex items-center justify-center font-bold">Цагаан</div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">Ариун сэтгэл</h4>
+                        <p class="text-xs text-slate-600 mt-1">Нарны гэрэл, өдрийн гэгээ, баяр талархал, ариун цэвэр, Цагаан сар.</p>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 flex gap-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-400 text-amber-950 shrink-0 flex items-center justify-center font-bold">Шар</div>
+                    <div>
+                        <h4 class="font-bold text-amber-950">Мэдлэг ба Алт</h4>
+                        <p class="text-xs text-slate-600 mt-1">Бичиг ном, мэргэн ухаан, алтан дэлхий, нандин эрдэнэ.</p>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-red-50 border border-red-100 flex gap-3">
+                    <div class="w-10 h-10 rounded-full bg-red-600 text-white shrink-0 flex items-center justify-center font-bold">Улаан</div>
+                    <div>
+                        <h4 class="font-bold text-red-950">Гал ба Залуу нас</h4>
+                        <p class="text-xs text-slate-600 mt-1">Гал дөл, баяр баясгалан, цог заль, Соёмбын гурван зальт гал.</p>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-100 flex gap-3">
+                    <div class="w-10 h-10 rounded-full bg-emerald-600 text-white shrink-0 flex items-center justify-center font-bold">Ногоон</div>
+                    <div>
+                        <h4 class="font-bold text-emerald-950">Мөнхийн Амьдрал</h4>
+                        <p class="text-xs text-slate-600 mt-1">Байгаль ертөнц, ургамал, тайван амгалан байдал.</p>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-800 text-white border border-slate-700 flex gap-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-900 border border-slate-600 shrink-0 flex items-center justify-center font-bold">Хар</div>
+                    <div>
+                        <h4 class="font-bold text-slate-100">Ид хав ба Хүч</h4>
+                        <p class="text-xs text-slate-300 mt-1">Хүчин чадал, сүр бараа, хувиршгүй сэтгэл (Хар хүн), газар дэлхий.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Self-Assessment Quiz -->
+        <section class="bg-white rounded-2xl p-6 md:p-8 shadow-md">
+            <div class="flex items-center justify-between mb-6 border-b pb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xl">4</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">Мэдлэгээ шалгах сорил (Quiz)</h3>
+                        <p class="text-xs text-slate-500">Асуултуудад хариулж оноогоо цуглуулаарай (Асуулт бүр 20 оноо)</p>
+                    </div>
+                </div>
+                <button onclick="resetQuiz()" class="text-xs text-amber-600 hover:text-amber-800 font-bold underline">
+                    Дахин эхлэх
+                </button>
+            </div>
+
+            <div id="quiz-container" class="space-y-8">
+                <!-- Questions injected by JS -->
+            </div>
+
+            <!-- Quiz Result Box -->
+            <div id="quiz-result" class="hidden mt-8 p-6 bg-amber-50 border-2 border-amber-300 rounded-xl text-center space-y-3">
+                <h4 class="text-2xl font-bold text-amber-900" id="result-title">Баяр хүргэе!</h4>
+                <p class="text-slate-700 font-medium" id="result-text">Та 0 оноо авлаа.</p>
+                <div id="badge-container" class="pt-2"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 py-6 text-center text-xs">
+        <p>6-р ангийн Дүрслэх урлагийн сурах бичгийн агуулгад суурилуулав.</p>
+    </footer>
+
+    <script>
+        const questions = [
+            {
+                q: "1. Монгол зургийн уламжлалт ойлголтоор 'Шунх' гэж ямар өнгийг нэрлэдэг вэ?",
+                options: ["Хөх өнгө", "Улаан өнгө", "Шар өнгө", "Хүрэн өнгө"],
+                correct: 1,
+                explanation: "Сүмбэ Хамбо Ишбалжирын 'Цэцгэн эрхи' зохиолд Шунх өнгийг Улаан өнгө гэж тэмдэглэсэн байдаг."
+            },
+            {
+                q: "2. Эцэг өнгөн дээр 'Эх өнгө' болох цагаан өнгийг найруулснаар ямар өнгө үүсдэг вэ?",
+                options: ["Эцэг өнгө", "Эх өнгө", "Хүү өнгө", "Бүл өнгө"],
+                correct: 2,
+                explanation: "Эцэг өнгө нь эх буюу цагаан өнгөтэй нийлж 'Хүү өнгө' үүсдэг."
+            },
+            {
+                q: "3. 'Арам' хэмээх эцэг өнгө нь ямар өнгийг илэрхийлдэг вэ?",
+                options: ["Цэнхэр өнгө", "Ногоон өнгө", "Улбар шар өнгө", "Хөх өнгө"],
+                correct: 3,
+                explanation: "Арам гэдэг нь Монгол зургийн уламжлалт нэршлээр Хөх өнгө юм."
+            },
+            {
+                q: "4. Сүлд, сүнс, сүр жавхлан болон Мөнх тэнгэрийг бэлгэддэг өнгө аль нь вэ?",
+                options: ["Хөх өнгө", "Шар өнгө", "Цагаан өнгө", "Улаан өнгө"],
+                correct: 0,
+                explanation: "Хөх өнгийн бэлгэдлийн эх сурвалж нь Мөнх тэнгэрээс үүдэлтэй бөгөөд сүлд, сүнс, оюун санааг бэлгэддэг."
+            },
+            {
+                q: "5. Бичиг ном, мэргэн цэцэн ухаан болон алт эрдэнийг ямар өнгөөр бэлгэддэг вэ?",
+                options: ["Ногоон өнгө", "Шар өнгө", "Хар өнгө", "Хүрэн өнгө"],
+                correct: 1,
+                explanation: "Шар өнгө нь бичиг ном, мэргэн цэцэн ухаан, алтан дэлхийг бэлгэддэг."
+            }
+        ];
+
+        let userAnswers = {};
+        let score = 0;
+
+        function mixColor() {
+            const val = document.getElementById('father-color').value;
+            const grad = document.getElementById('color-gradient');
+            const label = document.getElementById('gradient-label');
+
+            if(val === 'red') {
+                grad.style.background = 'linear-gradient(to right, #dc2626, #fca5a5, #ffffff)';
+                label.innerText = "Шунх (Улаан) + Цагаан = Улаан ягаан, ягаан зэрэг 'Хүү өнгөнүүд'";
+            } else if(val === 'blue') {
+                grad.style.background = 'linear-gradient(to right, #1e3a8a, #93c5fd, #ffffff)';
+                label.innerText = "Арам (Хөх) + Цагаан = Олон төрлийн 'Хүү цэнхэр өнгөнүүд'";
+            } else if(val === 'green') {
+                grad.style.background = 'linear-gradient(to right, #059669, #6ee7b7, #ffffff)';
+                label.innerText = "Ногоон + Цагаан = Төгрөг ногоон, цайвар ногоон 'Хүү өнгөнүүд'";
+            } else if(val === 'orange') {
+                grad.style.background = 'linear-gradient(to right, #f97316, #fdba74, #ffffff)';
+                label.innerText = "Хонд (Улбар шар) + Цагаан = Цайвар улбар 'Хүү өнгөнүүд'";
+            }
+        }
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            questions.forEach((q, idx) => {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3';
+                
+                let optionsHTML = '';
+                q.options.forEach((opt, optIdx) => {
+                    optionsHTML += `
+                        <button onclick="selectOption(${idx}, ${optIdx})" 
+                                id="opt-${idx}-${optIdx}"
+                                class="w-full text-left p-3 rounded-lg border border-slate-200 bg-white hover:bg-amber-50 font-medium text-sm text-slate-700 transition-all flex items-center justify-between">
+                            <span>${opt}</span>
+                            <i id="icon-${idx}-${optIdx}" class="fa-regular fa-circle text-slate-300"></i>
+                        </button>
+                    `;
+                });
+
+                qDiv.innerHTML = `
+                    <h4 class="font-bold text-slate-800 text-base">${q.q}</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+                        ${optionsHTML}
+                    </div>
+                    <div id="exp-${idx}" class="hidden mt-3 p-3 bg-blue-50 border-l-4 border-blue-500 rounded text-xs text-blue-900 leading-relaxed">
+                        <strong>Тайлбар:</strong> ${q.explanation}
+                    </div>
+                `;
+                container.appendChild(qDiv);
+            });
+        }
+
+        function selectOption(qIdx, optIdx) {
+            if (userAnswers[qIdx] !== undefined) return; // Prevent changing answer
+
+            userAnswers[qIdx] = optIdx;
+            const q = questions[qIdx];
+            const isCorrect = optIdx === q.correct;
+
+            const selectedBtn = document.getElementById(`opt-${qIdx}-${optIdx}`);
+            const selectedIcon = document.getElementById(`icon-${qIdx}-${optIdx}`);
+            const expBox = document.getElementById(`exp-${qIdx}`);
+
+            if (isCorrect) {
+                selectedBtn.classList.remove('bg-white', 'hover:bg-amber-50', 'border-slate-200');
+                selectedBtn.classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-900');
+                selectedIcon.className = 'fa-solid fa-circle-check text-emerald-600 text-lg';
+                score += 20;
+            } else {
+                selectedBtn.classList.remove('bg-white', 'hover:bg-amber-50', 'border-slate-200');
+                selectedBtn.classList.add('bg-rose-100', 'border-rose-500', 'text-rose-900');
+                selectedIcon.className = 'fa-solid fa-circle-xmark text-rose-600 text-lg';
+
+                // Highlight correct answer
+                const correctBtn = document.getElementById(`opt-${qIdx}-${q.correct}`);
+                const correctIcon = document.getElementById(`icon-${qIdx}-${q.correct}`);
+                correctBtn.classList.remove('bg-white', 'border-slate-200');
+                correctBtn.classList.add('bg-emerald-50', 'border-emerald-300', 'text-emerald-800');
+                correctIcon.className = 'fa-solid fa-circle-check text-emerald-500';
+            }
+
+            expBox.classList.remove('hidden');
+            document.getElementById('top-score').innerText = `Миний оноо: ${score}`;
+
+            if (Object.keys(userAnswers).length === questions.length) {
+                showFinalResult();
+            }
+        }
+
+        function showFinalResult() {
+            const resBox = document.getElementById('quiz-result');
+            const resTitle = document.getElementById('result-title');
+            const resText = document.getElementById('result-text');
+            const badgeBox = document.getElementById('badge-container');
+
+            resBox.classList.remove('hidden');
+            resText.innerText = `Та 100 онооноос ${score} оноо авлаа!`;
+
+            if (score >= 80) {
+                resTitle.innerText = "🏆 Гайхалтай! Маш сайн суралцлаа!";
+                badgeBox.innerHTML = `
+                    <div class="inline-flex items-center gap-2 bg-amber-200 text-amber-900 px-4 py-2 rounded-full font-bold text-sm shadow-sm">
+                        <i class="fa-solid fa-award text-amber-600 text-xl"></i>
+                        <span>Шагнал: Монгол Зургийн Өнгийн Мастер</span>
+                    </div>
+                `;
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            } else {
+                resTitle.innerText = "👍 Дахин нэг хичээлээ уншаад туршаад үзээрэй!";
+                badgeBox.innerHTML = `<span class="text-xs text-slate-500">Оноогоо ахиулахын тулд дахин эхлүүлж болно.</span>`;
+            }
+        }
+
+        function resetQuiz() {
+            userAnswers = {};
+            score = 0;
+            document.getElementById('top-score').innerText = `Миний оноо: 0`;
+            document.getElementById('quiz-result').classList.add('hidden');
+            renderQuiz();
+        }
+
+        // Initialize
+        mixColor();
+        renderQuiz();
+    </script>
+</body>
+</html>
+```eof
+
+### Хичээлийн бүтэц ба багшийн анхаарах зүйлс:
+1. **Онлайн хэрэглээ:** Энэхүү файлын код нь Tailwind CSS болон Canvas-Confetti зэрэг санг ашигласан тул сурагч ямар ч хөтөч дээр (Chrome, Safari, Edge) нээж шууд ажиллах боломжтой.
+2. **Урамшуулал:** Сорилын асуултуудыг бөглөж дуусаад 80 ба түүнээс дээш оноо авсан тохиолдолд конфети (баяр хүргэсэн буудалцаан) ажиллаж, **"Монгол Зургийн Өнгийн Мастер"** урамшууллын тэмдэг авна.
+3. **Өөрийн үнэлгээ:** Буруу хариулсан даалгавар бүрийн доор тайлбар гарч, сурагчид яагаад буруутсан талаарх мэдлэгээ шууд нөхөх боломжтой.
